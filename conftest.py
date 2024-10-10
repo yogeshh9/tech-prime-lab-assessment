@@ -1,5 +1,6 @@
 import pytest
 import logging
+import os
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -7,13 +8,16 @@ import selenium.webdriver.support.expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
-def pytest_configure():
+def pytest_configure(config):
     log_filename = f"./logs/test_log{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
     logging.basicConfig(
         level=logging.INFO,
         filename= log_filename,
         format= '%(asctime)s %(levelname)s %(message)s'
     )
+
+    report = f"test_report{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.html"
+    config.option.htmlpath = os.path.join("reports", report)
 
 @pytest.fixture(scope="session")
 def browser():
