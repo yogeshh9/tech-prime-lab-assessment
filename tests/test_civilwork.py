@@ -1,4 +1,5 @@
 import pytest
+import logging
 from selenium.webdriver.common.by import By
 
 @pytest.mark.civilwork
@@ -14,6 +15,11 @@ def test_excavation(browser):
     actual_unit = browser.find_element(By.XPATH, "//span[text()='Excavation']//parent::td//following-sibling::td[@id='unit']").text
     actual_rate = browser.find_element(By.XPATH, "//span[text()='Excavation']//parent::td//following-sibling::td[@id='rate']").text
     actual_cost = browser.find_element(By.XPATH, "//span[text()='Excavation']//parent::td//following-sibling::td[@id='total']").text
+
+    logging.info(f"Excavation - Expected Quantity: {expected_quantity}, Actual Quantity: {actual_quantity}")
+    logging.info(f"Excavation - Expected Unit: {expected_unit}, Actual Unit: {actual_unit}")
+    logging.info(f"Excavation - Expected Rate: {expected_rate}, Actual Rate: {actual_rate}")
+    logging.info(f"Excavation - Expected Cost: {expected_cost}, Actual Cost: {actual_cost}")
 
     assert expected_quantity == actual_quantity
     assert expected_unit == actual_unit
@@ -34,11 +40,15 @@ def test_backfilling(browser):
     actual_rate = browser.find_element(By.XPATH, "//span[text()='Backfilling']//parent::td//following-sibling::td[@id='rate']").text
     actual_cost = browser.find_element(By.XPATH, "//span[text()='Backfilling']//parent::td//following-sibling::td[@id='total']").text
 
+    logging.info(f"Backfilling - Expected Quantity: {expected_quantity}, Actual Quantity: {actual_quantity}")
+    logging.info(f"Backfilling - Expected Unit: {expected_unit}, Actual Unit: {actual_unit}")
+    logging.info(f"Backfilling - Expected Rate: {expected_rate}, Actual Rate: {actual_rate}")
+    logging.info(f"Backfilling - Expected Cost: {expected_cost}, Actual Cost: {actual_cost}")
+
     assert expected_quantity == actual_quantity
     assert expected_unit == actual_unit
     assert expected_rate == actual_rate
     assert expected_cost == actual_cost
-
 
 @pytest.mark.civilwork
 def test_soling(browser):
@@ -54,11 +64,15 @@ def test_soling(browser):
     actual_rate = browser.find_element(By.XPATH, "//span[text()='Soling']//parent::td//following-sibling::td[@id='rate']").text
     actual_cost = browser.find_element(By.XPATH, "//span[text()='Soling']//parent::td//following-sibling::td[@id='total']").text
 
+    logging.info(f"Soling - Expected Quantity: {expected_quantity}, Actual Quantity: {actual_quantity}")
+    logging.info(f"Soling - Expected Unit: {expected_unit}, Actual Unit: {actual_unit}")
+    logging.info(f"Soling - Expected Rate: {expected_rate}, Actual Rate: {actual_rate}")
+    logging.info(f"Soling - Expected Cost: {expected_cost}, Actual Cost: {actual_cost}")
+
     assert expected_quantity == actual_quantity
     assert expected_unit == actual_unit
     assert expected_rate == actual_rate
     assert expected_cost == actual_cost
-
 
 @pytest.mark.civilwork
 def test_antitermite(browser):
@@ -74,19 +88,12 @@ def test_antitermite(browser):
     actual_rate = browser.find_element(By.XPATH, "//span[text()='Antitermite']//parent::td//following-sibling::td[@id='rate']").text
     actual_cost = browser.find_element(By.XPATH, "//span[text()='Antitermite']//parent::td//following-sibling::td[@id='total']").text
 
+    logging.info(f"Antitermite - Expected Quantity: {expected_quantity}, Actual Quantity: {actual_quantity}")
+    logging.info(f"Antitermite - Expected Unit: {expected_unit}, Actual Unit: {actual_unit}")
+    logging.info(f"Antitermite - Expected Rate: {expected_rate}, Actual Rate: {actual_rate}")
+    logging.info(f"Antitermite - Expected Cost: {expected_cost}, Actual Cost: {actual_cost}")
+
     assert expected_quantity == actual_quantity
     assert expected_unit == actual_unit
     assert expected_rate == actual_rate
     assert expected_cost == actual_cost
-
-
-
-
-
-
-
-
-
-
-
-

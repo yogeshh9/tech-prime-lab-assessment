@@ -1,4 +1,5 @@
 import pytest
+import logging
 from selenium.webdriver.common.by import By
 
 @pytest.mark.rcc
@@ -14,6 +15,11 @@ def test_pcc_m_15(browser):
     actual_unit = browser.find_element(By.XPATH, "//span[text()='PCC M 15']//parent::td//following-sibling::td[@id='unit']").text
     actual_rate = browser.find_element(By.XPATH, "//span[text()='PCC M 15']//parent::td//following-sibling::td[@id='rate']").text
     actual_cost = browser.find_element(By.XPATH, "//span[text()='PCC M 15']//parent::td//following-sibling::td[@id='total']").text
+
+    logging.info(f"Expected Quantity: {expected_quantity}, Actual Quantity: {actual_quantity}")
+    logging.info(f"Expected Unit: {expected_unit}, Actual Unit: {actual_unit}")
+    logging.info(f"Expected Rate: {expected_rate}, Actual Rate: {actual_rate}")
+    logging.info(f"Expected Cost: {expected_cost}, Actual Cost: {actual_cost}")
 
     assert expected_quantity == actual_quantity
     assert expected_unit == actual_unit
@@ -34,11 +40,15 @@ def test_concrete_m_25(browser):
     actual_rate = browser.find_element(By.XPATH, "//span[text()='Concrete M 25']//parent::td//following-sibling::td[@id='rate']").text
     actual_cost = browser.find_element(By.XPATH, "//span[text()='Concrete M 25']//parent::td//following-sibling::td[@id='total']").text
 
+    logging.info(f"Expected Quantity: {expected_quantity}, Actual Quantity: {actual_quantity}")
+    logging.info(f"Expected Unit: {expected_unit}, Actual Unit: {actual_unit}")
+    logging.info(f"Expected Rate: {expected_rate}, Actual Rate: {actual_rate}")
+    logging.info(f"Expected Cost: {expected_cost}, Actual Cost: {actual_cost}")
+
     assert expected_quantity == actual_quantity
     assert expected_unit == actual_unit
     assert expected_rate == actual_rate
     assert expected_cost == actual_cost
-
 
 @pytest.mark.rcc
 def test_steel(browser):
@@ -54,17 +64,12 @@ def test_steel(browser):
     actual_rate = browser.find_element(By.XPATH, "//span[text()='Steel']//parent::td//following-sibling::td[@id='rate']").text
     actual_cost = browser.find_element(By.XPATH, "//span[text()='Steel']//parent::td//following-sibling::td[@id='total']").text
 
+    logging.info(f"Expected Quantity: {expected_quantity}, Actual Quantity: {actual_quantity}")
+    logging.info(f"Expected Unit: {expected_unit}, Actual Unit: {actual_unit}")
+    logging.info(f"Expected Rate: {expected_rate}, Actual Rate: {actual_rate}")
+    logging.info(f"Expected Cost: {expected_cost}, Actual Cost: {actual_cost}")
+
     assert expected_quantity == actual_quantity
     assert expected_unit == actual_unit
     assert expected_rate == actual_rate
     assert expected_cost == actual_cost
-
-
-
-
-
-
-
-
-
-
